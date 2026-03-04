@@ -36,6 +36,82 @@ STAT_NAMES = {
     "speed": "Speed",
 }
 
+# Kanto schematic coordinates: (x, y, display label)
+# x: 1=west → 10=east,  y: 1=south → 10=north
+KANTO_MAP: dict[str, tuple[float, float, str]] = {
+    "pallet-town-area":      (4.0, 2.0,  "Pallet Town"),
+    "route-1-area":          (4.0, 2.8,  "Route 1"),
+    "route-21-area":         (3.2, 1.8,  "Route 21"),
+    "cinnabar-island-area":  (2.8, 1.0,  "Cinnabar Island"),
+    "pokemon-mansion-1f":    (2.8, 1.0,  "Pokémon Mansion"),
+    "pokemon-mansion-2f":    (2.8, 1.0,  "Pokémon Mansion"),
+    "pokemon-mansion-3f":    (2.8, 1.0,  "Pokémon Mansion"),
+    "pokemon-mansion-b1f":   (2.8, 1.0,  "Pokémon Mansion"),
+    "route-20-area":         (3.8, 1.5,  "Route 20"),
+    "seafoam-islands-1f":    (3.2, 1.2,  "Seafoam Islands"),
+    "seafoam-islands-b1f":   (3.2, 1.2,  "Seafoam Islands"),
+    "seafoam-islands-b2f":   (3.2, 1.2,  "Seafoam Islands"),
+    "seafoam-islands-b3f":   (3.2, 1.2,  "Seafoam Islands"),
+    "seafoam-islands-b4f":   (3.2, 1.2,  "Seafoam Islands"),
+    "viridian-city-area":    (3.5, 3.8,  "Viridian City"),
+    "route-22-area":         (2.5, 3.8,  "Route 22"),
+    "route-23-area":         (2.5, 5.2,  "Route 23"),
+    "victory-road-1f":       (2.0, 6.2,  "Victory Road"),
+    "victory-road-2f":       (2.0, 6.2,  "Victory Road"),
+    "victory-road-3f":       (2.0, 6.2,  "Victory Road"),
+    "route-2-area":          (3.5, 5.0,  "Route 2"),
+    "viridian-forest-area":  (3.5, 4.5,  "Viridian Forest"),
+    "diglett-cave-area":     (5.0, 4.2,  "Diglett's Cave"),
+    "pewter-city-area":      (3.5, 7.0,  "Pewter City"),
+    "route-3-area":          (4.5, 7.0,  "Route 3"),
+    "mt-moon-1f":            (5.5, 7.0,  "Mt. Moon"),
+    "mt-moon-b1f":           (5.5, 7.0,  "Mt. Moon"),
+    "mt-moon-b2f":           (5.5, 7.0,  "Mt. Moon"),
+    "route-4-area":          (6.5, 7.0,  "Route 4"),
+    "cerulean-city-area":    (7.0, 8.2,  "Cerulean City"),
+    "cerulean-cave-1f":      (6.5, 9.2,  "Cerulean Cave"),
+    "cerulean-cave-2f":      (6.5, 9.2,  "Cerulean Cave"),
+    "cerulean-cave-b1f":     (6.5, 9.2,  "Cerulean Cave"),
+    "route-24-area":         (7.5, 9.0,  "Route 24"),
+    "route-25-area":         (8.5, 9.5,  "Route 25"),
+    "route-5-area":          (7.0, 7.5,  "Route 5"),
+    "route-6-area":          (7.0, 5.8,  "Route 6"),
+    "saffron-city-area":     (7.0, 6.8,  "Saffron City"),
+    "vermilion-city-area":   (7.0, 5.0,  "Vermilion City"),
+    "ss-anne-area":          (7.3, 5.0,  "S.S. Anne"),
+    "route-9-area":          (8.0, 8.2,  "Route 9"),
+    "route-10-area":         (8.5, 7.8,  "Route 10"),
+    "rock-tunnel-1f":        (8.5, 7.2,  "Rock Tunnel"),
+    "rock-tunnel-b1f":       (8.5, 7.2,  "Rock Tunnel"),
+    "power-plant-area":      (9.2, 8.5,  "Power Plant"),
+    "lavender-town-area":    (9.5, 7.0,  "Lavender Town"),
+    "pokemon-tower-1f":      (9.5, 7.0,  "Pokémon Tower"),
+    "pokemon-tower-2f":      (9.5, 7.0,  "Pokémon Tower"),
+    "pokemon-tower-3f":      (9.5, 7.0,  "Pokémon Tower"),
+    "pokemon-tower-4f":      (9.5, 7.0,  "Pokémon Tower"),
+    "pokemon-tower-5f":      (9.5, 7.0,  "Pokémon Tower"),
+    "pokemon-tower-6f":      (9.5, 7.0,  "Pokémon Tower"),
+    "pokemon-tower-7f":      (9.5, 7.0,  "Pokémon Tower"),
+    "route-8-area":          (8.5, 7.0,  "Route 8"),
+    "route-7-area":          (6.8, 7.5,  "Route 7"),
+    "celadon-city-area":     (6.0, 7.8,  "Celadon City"),
+    "route-16-area":         (5.0, 7.8,  "Route 16"),
+    "route-17-area":         (5.0, 6.5,  "Route 17"),
+    "route-18-area":         (5.0, 5.2,  "Route 18"),
+    "route-11-area":         (8.2, 5.5,  "Route 11"),
+    "route-12-area":         (9.2, 5.5,  "Route 12"),
+    "route-13-area":         (8.8, 5.0,  "Route 13"),
+    "route-14-area":         (8.5, 4.5,  "Route 14"),
+    "route-15-area":         (7.8, 4.5,  "Route 15"),
+    "fuchsia-city-area":     (6.0, 5.0,  "Fuchsia City"),
+    "safari-zone-area":      (5.5, 5.5,  "Safari Zone"),
+    "safari-zone-center":    (5.5, 5.5,  "Safari Zone"),
+    "safari-zone-east":      (5.5, 5.5,  "Safari Zone"),
+    "safari-zone-north":     (5.5, 5.5,  "Safari Zone"),
+    "safari-zone-west":      (5.5, 5.5,  "Safari Zone"),
+    "route-19-area":         (6.0, 4.0,  "Route 19"),
+}
+
 st.set_page_config(page_title="Pokédex", page_icon="🔴", layout="wide")
 
 
@@ -133,6 +209,19 @@ def fetch_sprite_url(name: str) -> str | None:
 
 
 @st.cache_data
+def fetch_locations(pokemon_id: int) -> list[str]:
+    resp = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}/encounters")
+    if not resp.ok:
+        return []
+    frlg = {"firered", "leafgreen"}
+    return [
+        enc["location_area"]["name"]
+        for enc in resp.json()
+        if any(vd["version"]["name"] in frlg for vd in enc["version_details"])
+    ]
+
+
+@st.cache_data
 def fetch_image(url: str) -> Image.Image:
     resp = requests.get(url)
     resp.raise_for_status()
@@ -177,6 +266,51 @@ def make_stat_radar(stats: dict) -> go.Figure:
     return fig
 
 
+def make_location_map(found_areas: list[str]) -> go.Figure:
+    found_labels = {KANTO_MAP[a][2] for a in found_areas if a in KANTO_MAP}
+
+    # Deduplicate by label (multiple floors → same pin)
+    label_coords: dict[str, tuple[float, float]] = {}
+    for _, (x, y, label) in KANTO_MAP.items():
+        if label not in label_coords:
+            label_coords[label] = (x, y)
+
+    x_found, y_found, t_found = [], [], []
+    x_other, y_other, t_other = [], [], []
+    for label, (x, y) in label_coords.items():
+        if label in found_labels:
+            x_found.append(x); y_found.append(y); t_found.append(label)
+        else:
+            x_other.append(x); y_other.append(y); t_other.append(label)
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=x_other, y=y_other, mode="markers+text", text=t_other,
+        textposition="top center",
+        textfont=dict(size=8, color="#999999"),
+        marker=dict(color="#CCCCCC", size=7),
+        hovertemplate="%{text}<extra></extra>",
+        showlegend=False,
+    ))
+    fig.add_trace(go.Scatter(
+        x=x_found, y=y_found, mode="markers+text", text=t_found,
+        textposition="top center",
+        textfont=dict(size=9, color="#CC2200", family="Arial Black"),
+        marker=dict(color="#FF4422", size=14, symbol="star"),
+        hovertemplate="%{text}<extra></extra>",
+        showlegend=False,
+    ))
+    fig.update_layout(
+        xaxis=dict(visible=False, range=[1.2, 10.5]),
+        yaxis=dict(visible=False, range=[0.5, 10.2]),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(173,216,230,0.35)",
+        height=460,
+        margin=dict(l=10, r=10, t=10, b=10),
+    )
+    return fig
+
+
 # ── UI ────────────────────────────────────────────────────────────────────────
 
 st.title("🔴 Pokédex")
@@ -196,6 +330,7 @@ if query:
             evo_url = (species.get("evolution_chain") or {}).get("url")
             if evo_url:
                 evo_stages = fetch_evolution_chain(evo_url)
+        locations = fetch_locations(data["id"]) if data else []
 
     if data is None:
         st.error("Pokémon not found. Try a different name or number.")
@@ -287,3 +422,9 @@ if query:
                 f'<div style="display:flex;align-items:center;flex-wrap:wrap;padding:16px 0">{arrow.join(stage_htmls)}</div>',
                 unsafe_allow_html=True,
             )
+
+        known_locs = [a for a in locations if a in KANTO_MAP]
+        if known_locs:
+            st.divider()
+            st.subheader("Locations in FireRed / LeafGreen")
+            st.plotly_chart(make_location_map(locations), use_container_width=True)
