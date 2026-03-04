@@ -376,26 +376,6 @@ if query:
             if description:
                 st.markdown(f"_{description}_")
 
-        st.divider()
-
-        # Stats section
-        st.subheader("Base Stats")
-        bar_col, radar_col = st.columns([1, 1])
-
-        with bar_col:
-            for stat_label, value in display_stats.items():
-                type_color = TYPE_COLORS.get(types[0].lower(), "#6890F0")
-                st.markdown(
-                    f"<span style='color:{type_color};font-weight:bold;display:inline-block;width:80px'>{stat_label}</span> "
-                    f"<span style='font-weight:bold'>{value}</span>",
-                    unsafe_allow_html=True,
-                )
-                st.progress(value / 255)
-
-        with radar_col:
-            fig = make_stat_radar(display_stats)
-            st.plotly_chart(fig, use_container_width=True)
-
         if evo_stages:
             st.divider()
             st.subheader("Evolution")
@@ -428,3 +408,23 @@ if query:
             st.divider()
             st.subheader("Locations in FireRed / LeafGreen")
             st.plotly_chart(make_location_map(locations), use_container_width=True)
+
+        st.divider()
+
+        # Stats section
+        st.subheader("Base Stats")
+        bar_col, radar_col = st.columns([1, 1])
+
+        with bar_col:
+            for stat_label, value in display_stats.items():
+                type_color = TYPE_COLORS.get(types[0].lower(), "#6890F0")
+                st.markdown(
+                    f"<span style='color:{type_color};font-weight:bold;display:inline-block;width:80px'>{stat_label}</span> "
+                    f"<span style='font-weight:bold'>{value}</span>",
+                    unsafe_allow_html=True,
+                )
+                st.progress(value / 255)
+
+        with radar_col:
+            fig = make_stat_radar(display_stats)
+            st.plotly_chart(fig, use_container_width=True)
